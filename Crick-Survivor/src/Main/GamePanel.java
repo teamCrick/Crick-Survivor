@@ -7,7 +7,7 @@ import java.awt.event.*;
 import javax.swing.JPanel;
 
 import GameState.GameStateManager;
-//import Handlers.Keys;///////////////////////////////////////////////////////
+import Handlers.Keys;
 
 // @SuppressWarnings("serial")
 public class GamePanel extends JPanel implements Runnable, KeyListener {
@@ -95,15 +95,21 @@ public class GamePanel extends JPanel implements Runnable, KeyListener {
 		graphics2.dispose();
 	}
 	
-	public void keyTyped(KeyEvent key){}
-
-	public void keyPressed(KeyEvent e) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	public void keyReleased(KeyEvent e) {
-		// TODO Auto-generated method stub
-		
-	}
+	public void keyTyped(KeyEvent key) {}
+    public void keyPressed(KeyEvent key) {
+        if(key.isControlDown()) {
+            if(key.getKeyCode() == KeyEvent.VK_R) {
+                //recording = !recording;
+                return;
+            }
+            if(key.getKeyCode() == KeyEvent.VK_S) {
+                //screenshot = true;
+                return;
+            }
+        }
+        Keys.keySet(key.getKeyCode(), true);
+    }
+    public void keyReleased(KeyEvent key) {
+        Keys.keySet(key.getKeyCode(), false);
+    }
 }
