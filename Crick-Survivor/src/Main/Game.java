@@ -12,5 +12,4 @@ public class Game {
 		window.pack();
 		window.setVisible(true);
 	}
-
 }
