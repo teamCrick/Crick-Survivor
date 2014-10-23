@@ -20,7 +20,7 @@ public class Fireball extends GameObject {
 		isFacingRight = right;
 		
 		moveSpeed = 3.8;
-		if(right) deltaX = moveSpeed;
+		if(!right) deltaX = moveSpeed;
 		else deltaX = -moveSpeed;
 		
 		spriteWidth = 30;
